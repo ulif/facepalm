@@ -37,3 +37,6 @@ Python scripts. You can check like this::
 You can leave the interpreter pressing ``CTRL-D``. The above imports should not
 raise any exception.
 
+
+.. _`face_recognition`: https://github.com/ageitgey/face_recognition
+.. _`OpenCV`: https://opencv.org/
