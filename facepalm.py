@@ -15,4 +15,6 @@ face_locs = face_recognition.face_locations(
         number_of_times_to_upsample=0, model="cnn")
 
 print("Found %s faces" % len(face_locs))
+for (top, right, bottom, left) in face_locs:
+    print(top, right, bottom, left)
 
