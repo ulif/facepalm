@@ -3,7 +3,7 @@
 #
 # detects faces in images.
 #
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageFilter
 import face_recognition
 
 # Read image
@@ -20,9 +20,15 @@ drawing = ImageDraw.Draw(pil_image)
 for (top, right, bottom, left) in face_locs:
     print(top, right, bottom, left)
     drawing.rectangle(
-        ((left, top), (right, bottom)), outline=(0x00, 0x00, 0xff))
+        ((left, top), (right, bottom)),
+        outline=(0x00, 0x00, 0xff))
 
 del drawing
+
+w, h = pil_image.size
+pil_image = pil_image.resize((int(w/25.0), int(h/25.0)), )
+pil_image = pil_image.resize((w, h), )
+print("Size: %s", pil_image.size)
 
 pil_image.show()
 
