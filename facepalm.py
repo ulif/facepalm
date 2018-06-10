@@ -25,6 +25,18 @@ for (top, right, bottom, left) in face_locs:
 
 del drawing
 
+def pixelate(im, box):
+    im_w, im_h = im.size
+    y0, x1, y1, x0 = box
+    w, h = x1 - x0, y1 - y0
+    snippet = im.crop((x0, y0, x1, y1), )
+    snippet = snippet.resize((int(w/15.0), int(h/15.0)), )
+    snippet = snippet.resize((w, h), )
+    im.paste(snippet, box=(x0, y0))
+    im.show()
+
+pixelate(pil_image, face_locs[0])
+
 w, h = pil_image.size
 pil_image = pil_image.resize((int(w/25.0), int(h/25.0)), )
 pil_image = pil_image.resize((w, h), )
