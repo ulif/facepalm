@@ -36,11 +36,5 @@ def pixelate(im, box):
     return im
 
 pil_image = pixelate(pil_image, face_locs[0])
-
-w, h = pil_image.size
-pil_image = pil_image.resize((int(w/25.0), int(h/25.0)), )
-pil_image = pil_image.resize((w, h), )
-print("Size: %s", pil_image.size)
-
 pil_image.show()
 
