@@ -26,11 +26,8 @@ face_locs = face_recognition.face_locations(
 
 print("Found %s faces" % len(face_locs))
 drawing = ImageDraw.Draw(pil_image)
-for (top, right, bottom, left) in face_locs:
-    print(top, right, bottom, left)
-    drawing.rectangle(
-        ((left, top), (right, bottom)),
-        outline=(0x00, 0x00, 0xff))
+for face_loc in face_locs:
+    pixelate(pil_image, face_loc)
 
 del drawing
 
